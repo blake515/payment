@@ -24,3 +24,10 @@
 3. 데모 (필요시 노트북 지참)
 4. 백오피스 UI 설계서(거래조회 화면만)
 
+### 결과물 
+
+### ERD 캐처화면
+![ERD Diagram](folder/ERD.png)
+
+### 결제요청내역 UI 설계서 
+![UI Design](folder/UI.png)

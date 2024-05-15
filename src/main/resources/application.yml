@@ -1,0 +1,39 @@
+server:
+  port: 8082
+spring:
+  output:
+    ansi:
+      enabled: always
+#  data:
+#    web:
+#      pageable:
+#        default-page-size: 5
+#        size-parameter: pageSize
+#        max-page-size: 100
+#        one-indexed-parameters: false
+  jpa:
+    hibernate:
+      ddl-auto: update #create #create-drop #update
+    #    database-platform: org.hibernate.dialect.MariaDBDialect #org.hibernate.dialect.MySQL5InnoDBDialect #org.hibernate.dialect.MariaDB103Dialect
+    open-in-view: false # waring : spring.jpa.open-in-view is enabled by default.
+    #    generate-ddl: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    url: jdbc:mariadb://localhost:3306/payment_demo?serverTimezone=UTC&characterEncoding=UTF-8
+    driver-class-name: org.mariadb.jdbc.Driver #com.mysql.cj.jdbc.Driver  #org.mariadb.jdbc.Driver
+    hikari:
+      username: root
+      password: root
+logging:
+  file:
+    path: ./logs/local-dev
+  pattern:
+    console: "%clr(%d{yy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint} %clr([%8.15t]){cyan} %clr(%-40.40logger{0}){blue} %clr(:){red} %clr(%m){faint}%n"
+  level:
+    org.hibernate.SQL: info
+    root: info
+    com.zaxxer.hikari.pool.HikariPool: debug
+    org.springframework: debug

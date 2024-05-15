@@ -1,0 +1,29 @@
+### 카드 추가
+POST localhost:8082/card/addCard
+Content-Type: application/json
+
+{
+  "owner": "BINGCHUN CAI",
+  "cardNumber":"1234567812345671"
+}
+
+### 토큰 가져오기
+POST localhost:8082/token/get
+Content-Type: application/json
+
+{
+    "cardRefId": "{addCard 에 응답 받은 cardRefId }"
+}
+
+### 결제요청
+POST localhost:8082/payment/request
+Content-Type: application/json
+
+{
+    "token":"get 에서 응답받은 token값",
+    "cardRefId": "addCard 에 응답 받은 cardRefId"
+}
+
+### 결제요청 내역목록
+GET localhost:8082/payment/search?pageNumber=1&pageSize=10&paymentStatus=PAYMENT_COMPLETED
+Content-Type: application/json

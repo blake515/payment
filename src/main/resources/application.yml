@@ -27,6 +27,11 @@ spring:
     hikari:
       username: root
       password: root
+  data:
+    redis:
+      port: 6379
+      password:
+      host: localhost
 logging:
   file:
     path: ./logs/local-dev
